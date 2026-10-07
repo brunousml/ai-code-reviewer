@@ -113,7 +113,7 @@ The agent will then guide you with prompts for each action:
 
 1.  **Clone the repository:**
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/brunousml/ai-code-reviewer.git
     cd ai-code-reviewer
     ```
 
