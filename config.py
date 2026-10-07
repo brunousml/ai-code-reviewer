@@ -5,7 +5,7 @@ import os
 Configuration for the AI Code Reviewer.
 
 This file contains the base prompt template for the Gemini API.
-Context files from the 'prompt_contexts' directory will be prepended to this prompt.
+Context files from the 'prompt-contexts' directory will be prepended to this prompt.
 """
 
 GEMINI_PROMPT = """Please review the following code changes based on the provided context and rules. Offering constructive suggestions and identifying potential issues.

@@ -51,7 +51,7 @@ def test_execute_cache_miss(review_mr_use_case, mock_vcs_service, mock_llm_servi
     # Assert
     mock_vcs_service.get_merge_request_changes.assert_called_once_with(project_id, mr_iid)
 
-    expected_prompt = f"Base prompt: {review_mr_use_case._load_prompt_context('prompt_contexts')} {changes_data}"
+    expected_prompt = f"Base prompt: {review_mr_use_case._load_prompt_context('prompt-contexts')} {changes_data}"
     mock_cache_service.get.assert_called_once_with(expected_prompt)
     mock_llm_service.analyze_code_changes.assert_called_once_with(expected_prompt)
     mock_cache_service.set.assert_called_once_with(expected_prompt, llm_review)
@@ -87,7 +87,7 @@ def test_execute_cache_hit(review_mr_use_case, mock_vcs_service, mock_llm_servic
     result = review_mr_use_case.execute(project_id, mr_iid, mock_llm_service)
 
     # Assert
-    expected_prompt = f"Base prompt: {review_mr_use_case._load_prompt_context('prompt_contexts')} {changes_data}"
+    expected_prompt = f"Base prompt: {review_mr_use_case._load_prompt_context('prompt-contexts')} {changes_data}"
     mock_cache_service.get.assert_called_once_with(expected_prompt)
     mock_llm_service.analyze_code_changes.assert_not_called() # Should not be called
     mock_cache_service.set.assert_not_called() # Should not be called

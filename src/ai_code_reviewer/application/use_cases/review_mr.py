@@ -7,7 +7,6 @@ from src.ai_code_reviewer.domain.ports.llm_service import LLMService
 from src.ai_code_reviewer.domain.ports.storage_service import StorageService
 from src.ai_code_reviewer.domain.ports.cache_service import CacheService
 from src.ai_code_reviewer.domain.services.review_parser import ReviewParser
-from src.ai_code_reviewer.domain.entities.review_comment import ReviewComment
 
 logger = logging.getLogger(__name__)
 
@@ -20,7 +19,7 @@ class ReviewMRUseCase:
         storage_service: StorageService,
         cache_service: CacheService,
         base_prompt: str,
-        prompt_context_dir: str = "prompt_contexts",
+        prompt_context_dir: str = "prompt-contexts",
     ):
         self.vcs_service = vcs_service
         self.storage_service = storage_service

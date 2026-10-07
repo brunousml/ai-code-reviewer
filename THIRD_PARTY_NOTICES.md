@@ -5,7 +5,7 @@ This project includes material from the following third parties.
 ## Code Smells catalog (Luzkan/smells)
 
 - Source: https://github.com/Luzkan/smells
-- Used in: `backup_contexts/code-smells/` (copy) and `prompt_contexts/code-smells.md` (summary/derivative)
+- Used in: `references/code-smells/` (copy) and `prompt-contexts/code-review.md` (summary/derivative)
 - License: MIT
 
 ```
