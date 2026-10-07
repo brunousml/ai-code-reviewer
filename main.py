@@ -5,18 +5,18 @@ load_dotenv()
 
 import os
 
-from src.code_review_agent.config import configure_logging, GEMINI_PROMPT
-from src.code_review_agent.infrastructure.vcs.gitlab_service import GitLabService
-from src.code_review_agent.infrastructure.llm.gemini_service import GeminiService
-from src.code_review_agent.infrastructure.llm.openai_service import OpenAIService
-from src.code_review_agent.infrastructure.storage.local_storage_service import LocalStorageService
-from src.code_review_agent.infrastructure.cache.file_cache_service import FileCacheService
-from src.code_review_agent.application.use_cases.review_mr import ReviewMRUseCase
-from src.code_review_agent.application.use_cases.get_pipelines import GetPipelinesUseCase
-from src.code_review_agent.application.use_cases.get_dora_metrics import GetDoraMetricsUseCase
-from src.code_review_agent.application.use_cases.get_merged_mrs import GetMergedMRsUseCase
-from src.code_review_agent.application.use_cases.get_project_labels import GetProjectLabelsUseCase
-from src.code_review_agent.presentation.cli import CLI
+from src.ai_code_reviewer.config import configure_logging, GEMINI_PROMPT
+from src.ai_code_reviewer.infrastructure.vcs.gitlab_service import GitLabService
+from src.ai_code_reviewer.infrastructure.llm.gemini_service import GeminiService
+from src.ai_code_reviewer.infrastructure.llm.openai_service import OpenAIService
+from src.ai_code_reviewer.infrastructure.storage.local_storage_service import LocalStorageService
+from src.ai_code_reviewer.infrastructure.cache.file_cache_service import FileCacheService
+from src.ai_code_reviewer.application.use_cases.review_mr import ReviewMRUseCase
+from src.ai_code_reviewer.application.use_cases.get_pipelines import GetPipelinesUseCase
+from src.ai_code_reviewer.application.use_cases.get_dora_metrics import GetDoraMetricsUseCase
+from src.ai_code_reviewer.application.use_cases.get_merged_mrs import GetMergedMRsUseCase
+from src.ai_code_reviewer.application.use_cases.get_project_labels import GetProjectLabelsUseCase
+from src.ai_code_reviewer.presentation.cli import CLI
 
 def main():
     """Composition Root: Initializes and wires up the application components."""

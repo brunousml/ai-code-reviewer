@@ -1,8 +1,8 @@
 import logging
 from typing import List
 
-from src.code_review_agent.domain.ports.vcs_service import VCSService
-from src.code_review_agent.domain.entities.environment import Environment
+from src.ai_code_reviewer.domain.ports.vcs_service import VCSService
+from src.ai_code_reviewer.domain.entities.environment import Environment
 
 logger = logging.getLogger(__name__)
 

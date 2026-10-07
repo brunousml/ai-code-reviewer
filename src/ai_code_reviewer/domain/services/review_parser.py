@@ -1,5 +1,5 @@
 from typing import List
-from src.code_review_agent.domain.entities.review_comment import ReviewComment
+from src.ai_code_reviewer.domain.entities.review_comment import ReviewComment
 
 
 class ReviewParser:

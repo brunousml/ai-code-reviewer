@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import MagicMock
 
-from src.code_review_agent.application.use_cases.review_mr import ReviewMRUseCase
+from src.ai_code_reviewer.application.use_cases.review_mr import ReviewMRUseCase
 
 # Fixtures to provide mocked services for the use case
 @pytest.fixture

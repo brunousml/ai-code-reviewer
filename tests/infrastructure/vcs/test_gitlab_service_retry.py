@@ -3,13 +3,13 @@ from unittest.mock import Mock, patch
 import gitlab.exceptions
 import os
 
-from src.code_review_agent.infrastructure.vcs.gitlab_service import GitLabService
+from src.ai_code_reviewer.infrastructure.vcs.gitlab_service import GitLabService
 
 
 class TestGitLabServiceRetry:
     """Testes para retry e throttling no GitLabService."""
 
-    @patch('code_review_agent.infrastructure.vcs.gitlab_service.Gitlab')
+    @patch('ai_code_reviewer.infrastructure.vcs.gitlab_service.Gitlab')
     @patch.dict(os.environ, {
         'GITLAB_URL': 'https://gitlab.com',
         'GITLAB_PRIVATE_TOKEN': 'test-token'
@@ -51,7 +51,7 @@ class TestGitLabServiceRetry:
         # Verifica que tentou 3 vezes para o primeiro comentário
         assert mock_mr.notes.create.call_count == 3
 
-    @patch('code_review_agent.infrastructure.vcs.gitlab_service.Gitlab')
+    @patch('ai_code_reviewer.infrastructure.vcs.gitlab_service.Gitlab')
     @patch.dict(os.environ, {
         'GITLAB_URL': 'https://gitlab.com',
         'GITLAB_PRIVATE_TOKEN': 'test-token'
@@ -80,7 +80,7 @@ class TestGitLabServiceRetry:
             # Deve ter chamado sleep pelo menos 2 vezes (entre os 3 comentários)
             assert mock_sleep.call_count >= 2
 
-    @patch('code_review_agent.infrastructure.vcs.gitlab_service.Gitlab')
+    @patch('ai_code_reviewer.infrastructure.vcs.gitlab_service.Gitlab')
     @patch.dict(os.environ, {
         'GITLAB_URL': 'https://gitlab.com',
         'GITLAB_PRIVATE_TOKEN': 'test-token'
@@ -98,7 +98,7 @@ class TestGitLabServiceRetry:
         assert service._is_rate_limit_error(Exception("Throttling error")) == True
         assert service._is_rate_limit_error(Exception("Normal error")) == False
 
-    @patch('code_review_agent.infrastructure.vcs.gitlab_service.Gitlab')
+    @patch('ai_code_reviewer.infrastructure.vcs.gitlab_service.Gitlab')
     @patch.dict(os.environ, {
         'GITLAB_URL': 'https://gitlab.com',
         'GITLAB_PRIVATE_TOKEN': 'test-token'
@@ -133,7 +133,7 @@ class TestGitLabServiceRetry:
         delay = service._calculate_backoff_delay(0, retry_after=30.0)
         assert delay == 30.0
 
-    @patch('code_review_agent.infrastructure.vcs.gitlab_service.Gitlab')
+    @patch('ai_code_reviewer.infrastructure.vcs.gitlab_service.Gitlab')
     @patch.dict(os.environ, {
         'GITLAB_URL': 'https://gitlab.com',
         'GITLAB_PRIVATE_TOKEN': 'test-token'
@@ -172,7 +172,7 @@ class TestGitLabServiceRetry:
         # Deve ter tentado max_retries + 1 vezes (1 inicial + 2 retries)
         assert mock_mr.notes.create.call_count == 3
 
-    @patch('code_review_agent.infrastructure.vcs.gitlab_service.Gitlab')
+    @patch('ai_code_reviewer.infrastructure.vcs.gitlab_service.Gitlab')
     @patch.dict(os.environ, {
         'GITLAB_URL': 'https://gitlab.com',
         'GITLAB_PRIVATE_TOKEN': 'test-token'

@@ -1,6 +1,8 @@
-# GitLab Code Review Agent
+# AI Code Reviewer
 
-This agent leverages Large Language Models (LLMs) like **Google's Gemini** and **OpenAI's GPT** to automate code reviews on GitLab Merge Requests. It also provides key insights into your project's CI/CD activity, including DORA metrics, recent pipelines, and merged MRs.
+> Formerly **Code Review Agent** (`code-review-agent`). The Python package was renamed from `src/code_review_agent` to `src/ai_code_reviewer`; see [Project Structure](#project-structure).
+
+AI Code Reviewer leverages Large Language Models (LLMs) like **Google's Gemini** and **OpenAI's GPT** to automate code reviews on GitLab Merge Requests. It also provides key insights into your project's CI/CD activity, including DORA metrics, recent pipelines, and merged MRs.
 
 ## Key Features
 
@@ -112,7 +114,7 @@ The agent will then guide you with prompts for each action:
 1.  **Clone the repository:**
     ```bash
     git clone <repository_url>
-    cd code-review-agent
+    cd ai-code-reviewer
     ```
 
 2.  **Create and activate a virtual environment:**
@@ -164,6 +166,22 @@ When publishing a review to GitLab:
 *   **Automatic Retry**: If rate limiting occurs, the system automatically retries with exponential backoff and respects the `Retry-After` header from GitLab.
 *   **Throttling**: A small delay (0.5s by default) is added between successful comment posts to avoid overwhelming the API.
 *   **Local Storage**: The complete review is always saved as a single unified file locally, regardless of how it's split when published.
+
+> **Note on the rename:** the bot identifier `<!-- agent-review-bot -->` and the `agent-review-requested` label kept their original names. Merge Requests reviewed before the rename are still recognized and are not reviewed again.
+
+## Project Structure
+
+The code lives in the `src/ai_code_reviewer/` package and follows Clean Architecture:
+
+```
+src/ai_code_reviewer/
+├── domain/          # Entities, ports (VCS, LLM, storage, cache), and the review parser
+├── application/     # Use cases: review_mr, get_pipelines, get_dora_metrics, ...
+├── infrastructure/  # Adapters: GitLab, Gemini, OpenAI, file cache, local storage
+└── presentation/    # CLI and output formatters
+```
+
+`main.py` is the composition root: it creates the services and connects them to the use cases. Imports use the `src.ai_code_reviewer` prefix, so run commands from the repository root.
 
 ## Running Tests
 
@@ -220,7 +238,7 @@ pytest -k "test_publish_review"
 pip install pytest-cov
 
 # Run tests with coverage report
-pytest --cov=src/code_review_agent --cov-report=html
+pytest --cov=src/ai_code_reviewer --cov-report=html
 
 # View coverage report
 open htmlcov/index.html  # macOS
@@ -236,7 +254,9 @@ The test suite follows the project structure:
 tests/
 ├── application/
 │   └── use_cases/
-│       └── test_review_mr.py          # Tests for ReviewMRUseCase
+│       ├── test_review_mr.py          # Tests for ReviewMRUseCase
+│       ├── test_review_mr_force.py    # Forced re-review (env var / label)
+│       └── test_review_mr_skip.py     # Skips MRs already reviewed
 ├── domain/
 │   └── services/
 │       └── test_review_parser.py      # Tests for ReviewParser

@@ -1,5 +1,5 @@
 from unittest.mock import Mock, MagicMock
-from src.code_review_agent.application.use_cases.review_mr import ReviewMRUseCase
+from src.ai_code_reviewer.application.use_cases.review_mr import ReviewMRUseCase
 
 def test_review_mr_skips_when_already_reviewed():
     # Setup

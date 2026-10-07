@@ -1,7 +1,7 @@
 from unittest.mock import Mock, patch
 import os
 import pytest
-from src.code_review_agent.application.use_cases.review_mr import ReviewMRUseCase
+from src.ai_code_reviewer.application.use_cases.review_mr import ReviewMRUseCase
 
 @patch.dict(os.environ, {"AGENT_REVIEW_FORCE": "true"})
 def test_review_mr_proceeds_when_env_var_force_is_true():

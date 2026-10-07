@@ -2,12 +2,12 @@ import os
 import logging
 from typing import Dict, Any, List
 
-from src.code_review_agent.domain.ports.vcs_service import VCSService
-from src.code_review_agent.domain.ports.llm_service import LLMService
-from src.code_review_agent.domain.ports.storage_service import StorageService
-from src.code_review_agent.domain.ports.cache_service import CacheService
-from src.code_review_agent.domain.services.review_parser import ReviewParser
-from src.code_review_agent.domain.entities.review_comment import ReviewComment
+from src.ai_code_reviewer.domain.ports.vcs_service import VCSService
+from src.ai_code_reviewer.domain.ports.llm_service import LLMService
+from src.ai_code_reviewer.domain.ports.storage_service import StorageService
+from src.ai_code_reviewer.domain.ports.cache_service import CacheService
+from src.ai_code_reviewer.domain.services.review_parser import ReviewParser
+from src.ai_code_reviewer.domain.entities.review_comment import ReviewComment
 
 logger = logging.getLogger(__name__)
 

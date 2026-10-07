@@ -7,9 +7,9 @@ from urllib.parse import unquote
 from typing import Dict, Any, List, Optional
 from datetime import datetime, timedelta
 
-from src.code_review_agent.domain.ports.vcs_service import VCSService
-from src.code_review_agent.domain.entities.pipeline import Pipeline
-from src.code_review_agent.domain.entities.job import Job
+from src.ai_code_reviewer.domain.ports.vcs_service import VCSService
+from src.ai_code_reviewer.domain.entities.pipeline import Pipeline
+from src.ai_code_reviewer.domain.entities.job import Job
 
 logger = logging.getLogger(__name__)
 

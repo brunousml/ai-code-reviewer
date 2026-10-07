@@ -2,7 +2,7 @@ import os
 import datetime
 import logging
 
-from src.code_review_agent.domain.ports.storage_service import StorageService
+from src.ai_code_reviewer.domain.ports.storage_service import StorageService
 
 logger = logging.getLogger(__name__)
 

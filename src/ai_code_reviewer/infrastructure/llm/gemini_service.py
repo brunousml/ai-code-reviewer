@@ -3,7 +3,7 @@ import os
 import google.generativeai as genai
 from google.api_core import exceptions as google_exceptions
 
-from src.code_review_agent.domain.ports.llm_service import LLMService
+from src.ai_code_reviewer.domain.ports.llm_service import LLMService
 
 logger = logging.getLogger(__name__)
 

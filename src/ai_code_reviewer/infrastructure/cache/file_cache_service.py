@@ -3,7 +3,7 @@ import hashlib
 import logging
 from typing import Optional
 
-from src.code_review_agent.domain.ports.cache_service import CacheService
+from src.ai_code_reviewer.domain.ports.cache_service import CacheService
 
 logger = logging.getLogger(__name__)
 

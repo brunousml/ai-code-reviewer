@@ -2,8 +2,8 @@ from abc import ABC, abstractmethod
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 
-from src.code_review_agent.domain.entities.pipeline import Pipeline
-from src.code_review_agent.domain.entities.job import Job
+from src.ai_code_reviewer.domain.entities.pipeline import Pipeline
+from src.ai_code_reviewer.domain.entities.job import Job
 
 class VCSService(ABC):
     """Abstract interface for a Version Control System service."""

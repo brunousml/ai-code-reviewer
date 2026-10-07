@@ -3,12 +3,12 @@ import os
 from datetime import datetime
 from typing import Union, List
 
-from src.code_review_agent.domain.ports.vcs_service import VCSService
-from src.code_review_agent.domain.entities.dora_metrics import (
+from src.ai_code_reviewer.domain.ports.vcs_service import VCSService
+from src.ai_code_reviewer.domain.entities.dora_metrics import (
     DeploymentFrequencyMetrics,
     ChangeFailureRateMetrics,
 )
-from src.code_review_agent.domain.entities.job import Job
+from src.ai_code_reviewer.domain.entities.job import Job
 
 logger = logging.getLogger(__name__)
 

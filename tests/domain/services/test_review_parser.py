@@ -1,4 +1,4 @@
-from src.code_review_agent.domain.services.review_parser import ReviewParser
+from src.ai_code_reviewer.domain.services.review_parser import ReviewParser
 
 
 class TestReviewParser:

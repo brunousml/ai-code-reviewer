@@ -5,8 +5,8 @@ from tabulate import tabulate
 from dataclasses import asdict, is_dataclass
 from typing import Any, List, Dict, Union
 
-from src.code_review_agent.domain.entities.pipeline import Pipeline
-from src.code_review_agent.domain.entities.dora_metrics import (
+from src.ai_code_reviewer.domain.entities.pipeline import Pipeline
+from src.ai_code_reviewer.domain.entities.dora_metrics import (
     DeploymentFrequencyMetrics,
     ChangeFailureRateMetrics,
 )

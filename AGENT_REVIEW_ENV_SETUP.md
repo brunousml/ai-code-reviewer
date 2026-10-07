@@ -150,7 +150,7 @@ glpat-xxxxxxxxxxxxxxxxxxxx
 **Valor padrão:**
 
 ```
-https://gitlab.example.com/group/code-review-agent.git
+https://gitlab.example.com/group/ai-code-reviewer.git
 ```
 
 **Quando configurar:**
@@ -824,13 +824,13 @@ AGENT_REVIEW_LLM        gemini                    All    (no flags)
 
 **Solução:**
 
-1. Verifique se a URL está correta (default: `https://gitlab.example.com/group/code-review-agent.git`)
+1. Verifique se a URL está correta (default: `https://gitlab.example.com/group/ai-code-reviewer.git`)
 2. Se usar fork, verifique se o repositório é acessível
 3. Verifique se `AGENT_REVIEW_VERSION` existe no repositório
 4. Teste clonar manualmente:
    ```bash
-   git clone https://gitlab.example.com/group/code-review-agent.git
-   git ls-remote --tags https://gitlab.example.com/group/code-review-agent.git
+   git clone https://gitlab.example.com/group/ai-code-reviewer.git
+   git ls-remote --tags https://gitlab.example.com/group/ai-code-reviewer.git
    ```
 
 ---
@@ -966,7 +966,7 @@ git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@<url>
 | `GITLAB_PRIVATE_TOKEN`  | ✅ Sim            | -                                                       | ✅ Sim  | Token GitLab com scope `api`                 |
 | `OPENAI_API_KEY`        | ⚠️ Se LLM=openai | -                                                       | ✅ Sim  | API Key da OpenAI                            |
 | `AGENT_REVIEW_LLM`      | ⬜ Não            | `openai`                                                | ⬜ Não  | LLM a usar (`openai`/`gemini`)               |
-| `AGENT_REVIEW_REPO_URL` | ⬜ Não            | `https://gitlab.example.com/group/code-review-agent.git` | ⬜ Não  | URL do repositório do agente                 |
+| `AGENT_REVIEW_REPO_URL` | ⬜ Não            | `https://gitlab.example.com/group/ai-code-reviewer.git` | ⬜ Não  | URL do repositório do agente                 |
 | `AGENT_REVIEW_VERSION`  | ⬜ Não            | `v1.0.0`                                                | ⬜ Não  | Versão/tag do agente                         |
 | `AGENT_REVIEW_PUBLISH`  | ⬜ Não            | `true`                                                  | ⬜ Não  | Publicar comentários (`true`/`false`)        |
 | `AGENT_REVIEW_FORCE`    | ⬜ Não            | `false`                                                 | ⬜ Não  | Forçar re-execução (usar apenas manualmente) |

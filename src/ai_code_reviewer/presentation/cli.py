@@ -7,14 +7,14 @@ import time
 from typing import Optional
 from urllib.parse import quote, unquote
 
-from src.code_review_agent.application.use_cases.review_mr import ReviewMRUseCase
-from src.code_review_agent.application.use_cases.get_pipelines import GetPipelinesUseCase
-from src.code_review_agent.application.use_cases.get_dora_metrics import GetDoraMetricsUseCase
-from src.code_review_agent.application.use_cases.get_merged_mrs import GetMergedMRsUseCase
-from src.code_review_agent.application.use_cases.get_project_labels import GetProjectLabelsUseCase
-from src.code_review_agent.application.utils import get_project_path_and_mr_iid_from_url
-from src.code_review_agent.presentation.formatters import format_as_table, format_as_json, format_as_csv
-from src.code_review_agent.domain.ports.llm_service import LLMService
+from src.ai_code_reviewer.application.use_cases.review_mr import ReviewMRUseCase
+from src.ai_code_reviewer.application.use_cases.get_pipelines import GetPipelinesUseCase
+from src.ai_code_reviewer.application.use_cases.get_dora_metrics import GetDoraMetricsUseCase
+from src.ai_code_reviewer.application.use_cases.get_merged_mrs import GetMergedMRsUseCase
+from src.ai_code_reviewer.application.use_cases.get_project_labels import GetProjectLabelsUseCase
+from src.ai_code_reviewer.application.utils import get_project_path_and_mr_iid_from_url
+from src.ai_code_reviewer.presentation.formatters import format_as_table, format_as_json, format_as_csv
+from src.ai_code_reviewer.domain.ports.llm_service import LLMService
 
 logger = logging.getLogger(__name__)
 
@@ -61,7 +61,7 @@ class CLI:
         self.get_project_labels_use_case = get_project_labels_use_case
         self.gemini_service = gemini_service
         self.openai_service = openai_service
-        self.parser = argparse.ArgumentParser(description="Code Review Agent CLI")
+        self.parser = argparse.ArgumentParser(description="AI Code Reviewer CLI")
         self.setup_parsers()
 
     def setup_parsers(self):

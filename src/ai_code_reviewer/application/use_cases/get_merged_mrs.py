@@ -1,7 +1,7 @@
 import logging
 from datetime import datetime, timedelta
 from typing import Optional
-from src.code_review_agent.domain.ports.vcs_service import VCSService
+from src.ai_code_reviewer.domain.ports.vcs_service import VCSService
 
 logger = logging.getLogger(__name__)
 
