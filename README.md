@@ -1,7 +1,5 @@
 # AI Code Reviewer
 
-> Formerly **Code Review Agent** (`code-review-agent`). The Python package was renamed from `src/code_review_agent` to `src/ai_code_reviewer`; see [Project Structure](#project-structure).
-
 AI Code Reviewer leverages Large Language Models (LLMs) like **Google's Gemini** and **OpenAI's GPT** to automate code reviews on GitLab Merge Requests. It also provides key insights into your project's CI/CD activity, including DORA metrics, recent pipelines, and merged MRs.
 
 ## Key Features
