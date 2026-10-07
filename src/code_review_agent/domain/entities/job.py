@@ -1,0 +1,7 @@
+from dataclasses import dataclass
+
+@dataclass
+class Job:
+    id: int
+    name: str
+    status: str

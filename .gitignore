@@ -1,0 +1,22 @@
+# Environment variables
+.env
+
+# Python virtual environment
+venv/
+
+# Local review files
+reviews/*
+
+# Python cache
+__pycache__/
+
+# IDE-specific files
+.idea/
+
+.cache/
+
+# Agent context / IDE
+AGENTS.md
+CLAUDE.md
+.claude/
+*.iml
